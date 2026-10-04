@@ -48,7 +48,7 @@ pipeline {
             steps {
                 sh '''
                   for i in $(seq 1 12); do
-                    if docker compose exec -T proxy wget -qO- http://localhost/api/health; then
+                    if docker compose exec -T tracker-api wget -qO- http://localhost:3000/api/health; then
                       echo "Smoke test passed successfully."
                       exit 0
                     fi
@@ -60,7 +60,6 @@ pipeline {
                 '''
             }
         }
-    }
 
     post {
         success {
