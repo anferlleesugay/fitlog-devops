@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>FitLog - Dashboard</title>
+  <style>
+    body { font-family: sans-serif; padding: 40px; background: #f4f6f8; }
+    .card { background: white; padding: 20px; border-radius: 8px; max-width: 400px; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>FitLog Dashboard</h1>
+    <p id="status">Connecting to backend...</p>
+  </div>
+  <p><small>Build Tag: <strong id="build-tag">BUILD_TAG_PLACEHOLDER</strong></small></p>
+
+  <script>
+    fetch('/api/health')
+      .then(res => res.json())
+      .then(data => { document.getElementById('status').innerText = 'API Status: ' + data.status; })
+      .catch(() => { document.getElementById('status').innerText = 'API Connection Failed'; });
+  </script>
+</body>
+</html>
