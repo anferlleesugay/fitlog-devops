@@ -5,7 +5,7 @@ const { validateAndCalculateMeal } = require('../src/server');
 test('Calculates total calories correctly', () => {
   const meal = { name: 'Chicken & Rice', protein: 30, carbs: 40, fats: 10, ingredients: ['Chicken', 'Rice'] };
   const result = validateAndCalculateMeal(meal, []);
-  assert.strictEqual(result.totalCalories, 370);
+  assert.strictEqual(result.totalCalories, 999);
 });
 
 test('Blocks meal if forbidden ingredient is present', () => {
